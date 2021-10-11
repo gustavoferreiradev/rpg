@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import * as C from './App.styles';
 import { Character } from './components/Character';
@@ -7,9 +8,6 @@ const App = () => {
   const char = useCharacter('Gustavo');
   const char2 = useCharacter('André');
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-  }, []);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     switch(e.code) {
@@ -30,7 +28,12 @@ const App = () => {
         char.moveDown();
       break;
     }
-  }
+  };
+
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <C.Container>
